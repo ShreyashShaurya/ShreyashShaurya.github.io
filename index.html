@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shreyash Shaurya - CS Student & Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #ff006e;
+        --secondary: #00d9ff;
+        --accent: #ffbe0b;
+        --dark-bg: #0a0f1e;
+        --card-bg: #151b2b;
+        --text-primary: #ffffff;
+        --text-secondary: #a8adc7;
+        --border: rgba(255, 255, 255, 0.08);
+        --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background: linear-gradient(
+          135deg,
+          var(--dark-bg) 0%,
+          #0f1629 50%,
+          #1a0a2e 100%
+        );
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 0, 110, 0.08) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(0, 217, 255, 0.08) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: rgba(10, 15, 30, 0.85);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        padding: 1.2rem 0;
+      }
+
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-family: "Playfair Display", serif;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 3rem;
+      }
+
+      nav a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      nav a::before {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: var(--transition);
+      }
+
+      nav a:hover {
+        color: var(--primary);
+      }
+
+      nav a:hover::before {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 100px 0 120px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 0, 110, 0.12) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 4.5rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        letter-spacing: -2px;
+      }
+
+      .hero h1 span {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        font-size: 1.35rem;
+        color: var(--text-secondary);
+        margin-bottom: 3rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 14px 32px;
+        border-radius: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        transition: var(--transition);
+        border: 2px solid transparent;
+        cursor: pointer;
+        font-size: 1rem;
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), #ff1744);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(255, 0, 110, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-4px);
+      }
+
+      .section {
+        padding: 100px 0;
+        position: relative;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 4rem;
+        text-align: center;
+        letter-spacing: -1px;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 2px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .skill-card {
+        background: linear-gradient(
+          135deg,
+          rgba(21, 27, 43, 0.8),
+          rgba(21, 27, 43, 0.5)
+        );
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2.5rem;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--primary),
+          transparent
+        );
+      }
+
+      .skill-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(255, 0, 110, 0.2);
+      }
+
+      .skill-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+      }
+
+      .skill-card p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .tag {
+        background: rgba(255, 0, 110, 0.15);
+        color: var(--primary);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: 1px solid rgba(255, 0, 110, 0.3);
+      }
+
+      .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 3rem;
+      }
+
+      .project-card {
+        background: linear-gradient(
+          135deg,
+          rgba(21, 27, 43, 0.8),
+          rgba(21, 27, 43, 0.5)
+        );
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--secondary),
+          transparent
+        );
+      }
+
+      .project-card:hover {
+        border-color: var(--secondary);
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(0, 217, 255, 0.2);
+      }
+
+      .project-header {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 0, 110, 0.1),
+          rgba(0, 217, 255, 0.05)
+        );
+        padding: 2rem;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        z-index: 2;
+      }
+
+      .project-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 14px;
+        margin-bottom: 1.2rem;
+        font-size: 1.6rem;
+      }
+
+      .project-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+      }
+
+      .project-category {
+        font-size: 0.85rem;
+        color: var(--secondary);
+        font-weight: 600;
+      }
+
+      .project-content {
+        padding: 2rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 2;
+      }
+
+      .project-description {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+      }
+
+      .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .tech-tag {
+        background: rgba(0, 217, 255, 0.15);
+        color: var(--secondary);
+        padding: 5px 11px;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border: 1px solid rgba(0, 217, 255, 0.3);
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: var(--transition);
+        width: fit-content;
+      }
+
+      .project-link:hover {
+        color: var(--secondary);
+        transform: translateX(6px);
+      }
+
+      .education-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .education-item {
+        background: linear-gradient(
+          135deg,
+          rgba(21, 27, 43, 0.8),
+          rgba(21, 27, 43, 0.5)
+        );
+        border-left: 4px solid var(--primary);
+        border-radius: 14px;
+        padding: 2.2rem;
+        margin-bottom: 2rem;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .education-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 0, 110, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .education-item:hover {
+        border-left-color: var(--secondary);
+        transform: translateX(8px);
+        box-shadow: 0 15px 35px rgba(255, 0, 110, 0.15);
+      }
+
+      .education-degree {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.3rem;
+      }
+
+      .education-school {
+        font-size: 1rem;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .education-period {
+        color: var(--secondary);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .education-detail {
+        color: var(--text-secondary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .contact-container {
+        text-align: center;
+        padding: 60px 20px;
+      }
+
+      .contact-description {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 3rem;
+        max-width: 550px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 12px 24px;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        transition: var(--transition);
+      }
+
+      .social-link:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: rgba(255, 0, 110, 0.1);
+        transform: translateY(-4px);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 3rem 0;
+        text-align: center;
+        color: var(--text-secondary);
+        margin-top: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        nav ul {
+          display: none;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.15rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+          margin-bottom: 3rem;
+        }
+
+        .projects-container {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        nav .container {
+          padding: 0 20px;
+        }
+
+        .container {
+          padding: 0 20px;
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-content {
+        animation: slideInUp 0.8s ease-out;
+      }
+
+      .skill-card {
+        animation: slideInUp 0.6s ease-out backwards;
+      }
+
+      .project-card {
+        animation: slideInUp 0.6s ease-out backwards;
+      }
+
+      .education-item {
+        animation: slideInUp 0.6s ease-out backwards;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <div class="logo">SS</div>
+        <ul>
+          <li><a href="#projects">Work</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Connect</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>I'm <span>Shreyash</span></h1>
+          <p class="hero-subtitle">
+            CS student building intelligent systems. I work on machine learning
+            models, backend APIs, and full-stack applications that solve real
+            problems. Currently at BMS College, Bengaluru.
+          </p>
+          <div class="cta-buttons">
+            <a href="#projects" class="btn btn-primary">See My Work</a>
+            <a
+              href="mailto:shreyashshaurya8@gmail.com"
+              class="btn btn-secondary"
+              >Get In Touch</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title">What I Do</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>ML & Data</h3>
+            <p>
+              Building ML systems with proper feature engineering, model
+              training, and deployment. Comfortable with classification,
+              regression, and NLP tasks.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">XGBoost</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">NLP</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Backend APIs</h3>
+            <p>
+              Designing scalable REST APIs with proper architecture. Experience
+              with Node.js, FastAPI, authentication, databases, and real-time
+              systems.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">FastAPI</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Express</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Full-Stack Dev</h3>
+            <p>
+              Building complete web applications with modern frontends,
+              databases, and user features. Real-time communication,
+              authentication, and deployment.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">React</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Socket.IO</span>
+              <span class="tag">JWT Auth</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Mobile Dev</h3>
+            <p>
+              Cross-platform mobile development with Flutter. Building
+              responsive apps with secure backends and real-time payment
+              processing.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">Flutter</span>
+              <span class="tag">Dart</span>
+              <span class="tag">State Mgmt</span>
+              <span class="tag">APIs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-container">
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">📈</div>
+              <h3 class="project-title">AlphaLens AI</h3>
+              <p class="project-category">AI Trading Research Platform</p>
+            </div>
+            <div class="project-content">
+              <p class="project-description">
+                ML-driven trading platform for NSE stocks using GradientBoosting
+                signal generation. Built 6 modular agents for data ingestion,
+                backtesting, and AI-powered explanations. Achieved 223%
+                backtested returns vs 5% benchmark over 2 years.
+              </p>
+              <div class="project-meta">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">ML</span>
+              </div>
+              <a
+                href="https://github.com/ShreyashShaurya/AlphaLens-AI"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🎓</div>
+              <h3 class="project-title">EduShield</h3>
+              <p class="project-category">Student Risk Prediction</p>
+            </div>
+            <div class="project-content">
+              <p class="project-description">
+                ML system identifying at-risk students using structured data and
+                NLP. Processed 32K+ records, trained XGBoost achieving ROC-AUC
+                0.95, and deployed Streamlit dashboard mapping 5 risk profiles
+                to interventions.
+              </p>
+              <div class="project-meta">
+                <span class="tech-tag">XGBoost</span>
+                <span class="tech-tag">SHAP</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">NLP</span>
+              </div>
+              <a
+                href="https://github.com/ShreyashShaurya/Edushield-Dropout-Prediction"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">⚕️</div>
+              <h3 class="project-title">ClinicalTriage AI</h3>
+              <p class="project-category">Fetal Health Classification</p>
+            </div>
+            <div class="project-content">
+              <p class="project-description">
+                Healthcare prediction system for fetal health classification
+                using XGBoost. Achieved 94% accuracy and 0.91 pathological
+                recall on 2,126 CTG records. Deployed confidence filter for
+                human review via dashboard.
+              </p>
+              <div class="project-meta">
+                <span class="tech-tag">XGBoost</span>
+                <span class="tech-tag">SMOTE</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">Healthcare</span>
+              </div>
+              <a
+                href="https://github.com/ShreyashShaurya/Clinical-Triage-AI"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🤝</div>
+              <h3 class="project-title">College Connect</h3>
+              <p class="project-category">Full-Stack Social Platform</p>
+            </div>
+            <div class="project-content">
+              <p class="project-description">
+                Full-stack college platform with forums, marketplace,
+                carpooling, and real-time chat. Built with JWT auth, role-based
+                access control, friends-first feed, and Socket.IO for WebSocket
+                communication.
+              </p>
+              <div class="project-meta">
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Socket.IO</span>
+              </div>
+              <a
+                href="https://github.com/ShreyashShaurya/College-Connect"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🏛️</div>
+              <h3 class="project-title">CivicSense</h3>
+              <p class="project-category">
+                Complaint Classification & Hotspot Detection
+              </p>
+            </div>
+            <div class="project-content">
+              <p class="project-description">
+                Civic complaint classifier using TF-IDF and cosine similarity.
+                Built 5 FastAPI endpoints with Dockerized backend for complaint
+                processing, classification, and location-based risk aggregation
+                with 3 risk levels.
+              </p>
+              <div class="project-meta">
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">NLP</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Scikit-learn</span>
+              </div>
+              <a
+                href="https://github.com/ShreyashShaurya/Civicsense-Smart-City-GenAI"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">✋</div>
+              <h3 class="project-title">AirGlyph AI</h3>
+              <p class="project-category">Gesture-Controlled Air Drawing</p>
+            </div>
+            <div class="project-content">
+              <p class="project-description">
+                Computer vision system for gesture-controlled air drawing with
+                CNN-based symbol recognition. Implemented hand tracking,
+                multi-gesture support, and multi-stroke reconstruction using
+                contour analysis.
+              </p>
+              <div class="project-meta">
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">CNN</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Computer Vision</span>
+              </div>
+              <a
+                href="https://github.com/ShreyashShaurya/AirGlyph_AI"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">💳</div>
+              <h3 class="project-title">TapKaro</h3>
+              <p class="project-category">Cross-Platform Digital Wallet</p>
+            </div>
+            <div class="project-content">
+              <p class="project-description">
+                Cross-platform digital wallet supporting peer-to-peer payments,
+                QR-based transactions, and utility services. Built with Flutter
+                for mobile and Node.js backend with Supabase for secure
+                authentication and real-time transaction handling.
+              </p>
+              <div class="project-meta">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Supabase</span>
+                <span class="tech-tag">Payments</span>
+              </div>
+              <a
+                href="https://github.com/ShreyashShaurya/TapKaro"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container">
+        <h2 class="section-title">Education & Certs</h2>
+        <div class="education-container">
+          <div class="education-item">
+            <div class="education-degree">
+              B.Tech in Computer Science & Engineering
+            </div>
+            <div class="education-school">
+              BMS College of Engineering, Bengaluru
+            </div>
+            <div class="education-period">Aug 2023 – June 2027</div>
+            <div class="education-detail">
+              Pre-final year student | Currently building projects in ML,
+              backend, and full-stack
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-degree">
+              Nutanix Multicloud Infrastructure
+            </div>
+            <div class="education-school">Nutanix</div>
+            <div class="education-period">2026</div>
+            <div class="education-detail">
+              Certification in multicloud infrastructure and deployment
+              strategies
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-degree">Oracle AI Foundations Associate</div>
+            <div class="education-school">Oracle University</div>
+            <div class="education-period">2025</div>
+            <div class="education-detail">
+              Certified in foundational AI and machine learning concepts
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-degree">
+              Oracle Generative AI Professional
+            </div>
+            <div class="education-school">Oracle University</div>
+            <div class="education-period">2025</div>
+            <div class="education-detail">
+              Specialized certification in generative AI technologies and
+              applications
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-degree">Front End Web Development</div>
+            <div class="education-school">Infosys</div>
+            <div class="education-period">2025</div>
+            <div class="education-detail">
+              Professional certification in modern web development practices
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-container">
+          <h2 class="section-title">Let's Build Something</h2>
+          <p class="contact-description">
+            I'm always interested in discussing ML projects, system design, and
+            building things that matter. Feel free to reach out!
+          </p>
+
+          <div class="social-links">
+            <a
+              href="https://github.com/ShreyashShaurya"
+              target="_blank"
+              class="social-link"
+            >
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/shreyash-shaurya-b17463407/"
+              target="_blank"
+              class="social-link"
+            >
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:shreyashshaurya8@gmail.com" class="social-link">
+              <span>Email</span>
+            </a>
+            <a href="tel:+919142200385" class="social-link">
+              <span>Phone</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>Made with code & coffee ☕ By shreyash</p>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href === "#") return;
+
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -80px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".skill-card, .project-card, .education-item")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>
